@@ -1658,6 +1658,6 @@ function Process-AllROMsFromAzureStorage {
     }
 }
 
-
+$filenamestring = $TriggerMetadata.Name
 $blobStream = New-Object System.IO.MemoryStream(,$inputblob)
 Process-FromAzureStream -FileName $filenamestring -stream $blobStream
