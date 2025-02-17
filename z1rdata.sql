@@ -1,0 +1,236 @@
+/****** Object:  Table [dbo].[Flags]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Flags](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[flagstring] [nvarchar](max) NOT NULL,
+	[Overworld] [nvarchar](max) NULL,
+	[DungeonQuest] [nvarchar](max) NULL,
+	[HintType] [nchar](10) NULL,
+	[2ndQuestRooms] [nvarchar](50) NULL,
+	[DungeonRoomShuffle] [nvarchar](max) NULL,
+	[ImportantIn9] [nvarchar](max) NULL,
+	[Level9Entry] [nvarchar](max) NULL,
+	[RMOS] [nvarchar](50) NULL,
+	[DoNotSortShapes] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LevelRooms]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LevelRooms](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[LevelNum] [int] NOT NULL,
+	[Location] [nchar](10) NOT NULL,
+	[RoomType] [nvarchar](max) NOT NULL,
+	[Enemies] [nvarchar](max) NULL,
+	[ItemDrop] [nvarchar](max) NULL,
+	[Staircase] [nchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OverworldItems]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OverworldItems](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[Armos] [nvarchar](max) NOT NULL,
+	[WSItem] [nvarchar](max) NOT NULL,
+	[Coast] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OverworldLocations]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OverworldLocations](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[Position] [nchar](10) NOT NULL,
+	[Type] [nvarchar](max) NOT NULL,
+	[Blocker] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OverworldShopItems]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OverworldShopItems](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OverworldShopID] [int] NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Item1] [nvarchar](max) NOT NULL,
+	[Item1Price] [int] NULL,
+	[Item2] [nvarchar](max) NOT NULL,
+	[Item2Price] [int] NULL,
+	[Item3] [nvarchar](max) NOT NULL,
+	[Item3Price] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OverworldShops]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OverworldShops](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[ShopType] [nchar](30) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Quotes]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Quotes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[Quote] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecorderTunes]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecorderTunes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RomID] [int] NOT NULL,
+	[TuneText] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ROMs]    Script Date: 2/16/2025 6:08:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ROMs](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[seed] [nvarchar](450) NOT NULL,
+	[Flags] [nvarchar](450) NOT NULL,
+	[TriforcesToEnter9] [int] NOT NULL,
+	[RandomizerVersion] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[seed] ASC,
+	[Flags] ASC,
+	[RandomizerVersion] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[LevelRooms]  WITH CHECK ADD  CONSTRAINT [FK_LevelRooms_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[LevelRooms] CHECK CONSTRAINT [FK_LevelRooms_ROMs]
+GO
+ALTER TABLE [dbo].[OverworldItems]  WITH CHECK ADD  CONSTRAINT [FK_OverworldItems_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[OverworldItems] CHECK CONSTRAINT [FK_OverworldItems_ROMs]
+GO
+ALTER TABLE [dbo].[OverworldLocations]  WITH CHECK ADD  CONSTRAINT [FK_OverworldLocations_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[OverworldLocations] CHECK CONSTRAINT [FK_OverworldLocations_ROMs]
+GO
+ALTER TABLE [dbo].[OverworldShopItems]  WITH CHECK ADD  CONSTRAINT [FK_OverworldShopItems_OverworldShops] FOREIGN KEY([OverworldShopID])
+REFERENCES [dbo].[OverworldShops] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[OverworldShopItems] CHECK CONSTRAINT [FK_OverworldShopItems_OverworldShops]
+GO
+ALTER TABLE [dbo].[OverworldShops]  WITH CHECK ADD  CONSTRAINT [FK_OverworldShops_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[OverworldShops] CHECK CONSTRAINT [FK_OverworldShops_ROMs]
+GO
+ALTER TABLE [dbo].[Quotes]  WITH CHECK ADD  CONSTRAINT [FK_Quotes_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Quotes] CHECK CONSTRAINT [FK_Quotes_ROMs]
+GO
+ALTER TABLE [dbo].[RecorderTunes]  WITH NOCHECK ADD  CONSTRAINT [FK_RecorderTunes_ROMs] FOREIGN KEY([RomID])
+REFERENCES [dbo].[ROMs] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[RecorderTunes] CHECK CONSTRAINT [FK_RecorderTunes_ROMs]
+GO
