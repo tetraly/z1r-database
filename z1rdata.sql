@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[Flags]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[Flags]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +21,7 @@ PRIMARY KEY CLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LevelRooms]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[LevelRooms]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -35,6 +35,10 @@ CREATE TABLE [dbo].[LevelRooms](
 	[Enemies] [nvarchar](max) NULL,
 	[ItemDrop] [nvarchar](max) NULL,
 	[Staircase] [nchar](50) NULL,
+	[WestWall] [nchar](20) NULL,
+	[EastWall] [nchar](20) NULL,
+	[NorthWall] [nchar](20) NULL,
+	[SouthWall] [nchar](20) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -45,7 +49,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OverworldItems]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[OverworldItems]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +70,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OverworldLocations]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[OverworldLocations]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +91,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OverworldShopItems]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[OverworldShopItems]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +116,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OverworldShops]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[OverworldShops]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,7 +135,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Quotes]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[Quotes]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +154,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RecorderTunes]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[RecorderTunes]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -169,7 +173,7 @@ UNIQUE NONCLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ROMs]    Script Date: 2/16/2025 6:08:16 PM ******/
+/****** Object:  Table [dbo].[ROMs]    Script Date: 2/26/2025 5:54:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
