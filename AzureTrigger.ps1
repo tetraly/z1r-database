@@ -1432,8 +1432,8 @@ function Create-SQLQuery {
     for ($level =1; $level -lt 10; $level++){
         foreach ($room in $dataextractor.data[$level].Keys){
             $roomData = $dataextractor.data[$level][$room]
-            $roomScript = "INSERT INTO LEVELROOMS (RomID, LevelNum, [Location], RoomType, Enemies, ItemDrop, Staircase) "
-                        ##Newstuff here
+            $roomScript = "INSERT INTO LEVELROOMS (RomID, LevelNum, [Location], RoomType, Enemies, ItemDrop, Staircase, WestWall, EastWall, NorthWall, SouthWall) "
+            ##Newstuff here
             $leveltoprocess = 1
             if (!$global:FirstHalfFirstQuest -and ($level -eq 2 -OR $level -eq 4)) {
                 $leveltoprocess = $level+1
@@ -1450,7 +1450,8 @@ function Create-SQLQuery {
             else {
                 $leveltoprocess = $level
             }
-            $roomScript += "VALUES(@NewROMID,$($leveltoprocess),'$($roomData.room_num)','$($roomData.room_type)','$($roomData.enemy_info)','$($roomData.item_info)','$($roomData.stair_info)'); "
+
+            $roomScript += "VALUES(@NewROMID,$($leveltoprocess),'$($roomData.room_num)','$($roomData.room_type)','$($roomData.enemy_info)','$($roomData.item_info)','$($roomData.stair_info)','$($roomData."west.wall_type")','$($roomData."east.wall_type")','$($roomData."north.wall_type")','$($roomData."south.wall_type")'); "
             $levelScriptBlock += $roomScript
         }
     }
