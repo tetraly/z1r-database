@@ -1089,7 +1089,7 @@ class DataExtractor {
         return $tbr
     }
 
-    [int] _GetWallType([int]$LevelNum, [int]$RoomNum, [Direction] $Direction){
+    [WallType] _GetWallType([int]$LevelNum, [int]$RoomNum, [Direction] $Direction){
         $offset = if ($Direction -in @([Direction]::EAST, [Direction]::WEST)) { 0x80 } else { 0x00 }
         $bitsToShift = if ($Direction -in @([Direction]::NORTH, [Direction]::WEST)) { 32 } else { 4 }
 
@@ -1107,7 +1107,7 @@ class DataExtractor {
 
         $directions = @([Direction]::NORTH, [Direction]::EAST, [Direction]::SOUTH, [Direction]::WEST)
         foreach ($direction in $directions) {
-            if ($this._GetWallType($levelnum, $roomnum, $direction) -eq $global:WallType::SHUTTER_DOOR) {
+            if ($this._GetWallType($levelnum, $roomnum, $direction) -eq [WallType]::SHUTTER_DOOR) {
                 return $false
             }
         }
